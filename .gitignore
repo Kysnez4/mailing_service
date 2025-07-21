@@ -1,0 +1,51 @@
+# .gitignore for Django Projects
+.idea/
+
+# Python-specific
+*.pyc
+*.pyo
+__pycache__/
+
+# Database
+*.sqlite3
+
+# Development/Debugging
+*.pyd
+*.db
+*.log
+*.pot
+
+# Virtual Environment
+venv/
+env/
+
+# Django migrations
+/migrations/
+
+# Ignore local settings
+/local_settings.py
+
+# Ignore Visual Studio Code settings
+.vscode/
+
+# Ignore Jupyter Notebooks
+*.ipynb_checkpoints/
+
+# Ignore Docker Compose files
+docker-compose.yml
+docker-compose.override.yml
+docker-compose.*.yml
+
+# Ignore Celery Beat schedule file
+celerybeat-schedule
+
+# Ignore Celery worker state and results
+celerybeat.pid
+celerybeat.db
+
+# Ignore pipenv virtual environment
+Pipfile.lock
+
+#Security key
+.env
+/.idea/dataSources.local.xml

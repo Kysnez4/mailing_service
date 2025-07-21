@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Статистика рассылок</h2>
+<div class="row mb-4">
+    <div class="col-md-3">
+        <div class="card text-bg-primary mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Всего рассылок</h5>
+                <p class="card-text display-5">{{ total_messages }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-bg-success mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Успешных попыток</h5>
+                <p class="card-text display-5">{{ success_attempts }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-bg-danger mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Неуспешных попыток</h5>
+                <p class="card-text display-5">{{ failed_attempts }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="card text-bg-info mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Всего попыток</h5>
+                <p class="card-text display-5">{{ total_attempts }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+<h3>Ваши рассылки</h3>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Тема</th>
+            <th>Статус</th>
+            <th>Попыток</th>
+            <th>Успешно</th>
+            <th>Не успешно</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for stat in mailing_stats %}
+        <tr>
+            <td>{{ stat.mailing.id }}</td>
+            <td>{{ stat.mailing.message.subject }}</td>
+            <td>{{ stat.mailing.get_status_display }}</td>
+            <td>{{ stat.total }}</td>
+            <td>{{ stat.success }}</td>
+            <td>{{ stat.failed }}</td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="6">Нет рассылок</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %} 

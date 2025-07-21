@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Сообщения</h2>
+<a href="{% url 'message_create' %}" class="btn btn-primary mb-2">Добавить сообщение</a>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Тема</th>
+            <th>Тело</th>
+            <th>Действия</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for message in object_list %}
+        <tr>
+            <td>{{ message.subject }}</td>
+            <td>{{ message.body|truncatechars:50 }}</td>
+            <td>
+                <a href="{% url 'message_update' message.pk %}" class="btn btn-sm btn-warning">Редактировать</a>
+                <a href="{% url 'message_delete' message.pk %}" class="btn btn-sm btn-danger">Удалить</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="3">Нет сообщений</td></tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %} 

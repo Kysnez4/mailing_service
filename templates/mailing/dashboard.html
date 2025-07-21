@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Главная страница</h2>
+<div class="row">
+    <div class="col-md-4">
+        <div class="card text-bg-primary mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Всего рассылок</h5>
+                <p class="card-text display-5">{{ total_mailings }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-bg-success mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Активных рассылок</h5>
+                <p class="card-text display-5">{{ active_mailings }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-bg-info mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Уникальных получателей</h5>
+                <p class="card-text display-5">{{ unique_clients }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 
